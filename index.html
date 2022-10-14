@@ -221,16 +221,16 @@
 			</td>
 		</tr>
 	</table>
-	<table align=justify width=850px>
+	<table align= center width=850px>
 		<center>
 			<tr>
-				<td>
+				<td style="text-align:justify">
 					Before training the visual detector, we first extract at most 1000 visual proposals using Edge Boxes \cite{zitnick2014edge} from OpenCV \cite{bradski2000opencv}. We choose Edge Boxes over other CNN-based alternatives because it is a generic, dataset-independent proposal generation technique, as opposed to other supervised CNN-based alternatives that are trained end-to-end using a specific dataset. We use Pytorch \cite{NEURIPS2019_9015} as our training framework. A convolutional feature map is obtained using CNN layers of the VGG16 network \cite{simonyan2014very} pretrained with ImageNet before ROIAlign \cite{he2017mask}, then the first two fully-connected (FC) layers are used as box classifier to extract visual features. We preserve the original aspect ratio of the images and resize them to five different scales {480, 576, 688, 864, 1200} as described in \cite{bilen2016weakly}. As a type of data augmentation, we apply random horizontal flips to the images and choose a scale at random during training. At test time, we calculate the average outputs of 10 images (the 5 scales and their flips). The audio is separated into 960 ms non-overlapping frames. A short-time Fourier transform is used to break down the 960 ms frames, with 25 ms windows every 10 ms. To prevent numerical difficulties, the resulting spectrogram is integrated into 64 mel-spaced frequency bins, and the magnitude of each bin is log-transformed after a slight offset is added. This produces log-mel spectrogram patches with 96 x 64 bins for each 0.96-second audio region. Before training the detector, offline we extract the audio conv feature maps for each region using CNN layers of the VGGish network \cite{hershey2017cnn} pre-trained on the large YouTube dataset \cite{hershey2017cnn}. These are fed to two FC layers during training. We use the indirect path, attention path and the combination of paths only during inference. They are not part of the training, but the audio-visual similarity that they rely on is learned in training. Further implementation details can be found in the supplementary file. The learnable temperature parameter $\rho$ is 0.07, and the weighting parameters $\lambda_{1}, \lambda_{2},$ and $\lambda_{3}$ are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, the results become the same so our approach is not sensitive to the choice of lambdas to change the result. We use the Adam optimizer \cite{kingma2014adam} by experimenting different learning rates and weight decays. The learning rate of 1e-5 and the weight decay of 5e-4 perform best for both dataset. While a batch size of 1 is used during audio-only and video-only training, we used the batch size $\mathcal{B}=12$ for joint training with the NCE contrastive loss. The models are jointly trained with 20K iterations.
 				</td>
 			</tr>
 		</center>
 	</table>
-	<table align=justify width=800px>
+	<table align= center width=800px>
 		<br>
 		<tr><center>
 			<span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
