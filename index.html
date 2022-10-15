@@ -249,25 +249,14 @@
 					using CNN layers of the <a href="https://arxiv.org/abs/1609.09430">VGGish</a> network pre-trained on the large YouTube dataset. These are fed to two FC layers during training. 
 					We use the indirect path, attention path and the combination of paths only during inference. They are not part of the training, but the audio-visual similarity that they rely 
 					on is learned in training. The learnable temperature parameter $\rho$ is 0.07, and the weighting 
-					parameters $\lambda_{1}, \lambda_{2},$ and $\lambda_{3}$ are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, 
+					parameters $$\lambda_{1}, \lambda_{2},$$ and $$\lambda_{3}$$ are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, 
 					the results become the same so our approach is not sensitive to the choice of lambdas to change the result. We use the Adam optimizer \cite{kingma2014adam} by experimenting 
 					different learning rates and weight decays. The learning rate of 1e-5 and the weight decay of 5e-4 perform best for both dataset. While a batch size of 1 is used during audio-only and 
-					video-only training, we used the batch size $\mathcal{B}=12$ for joint training with the NCE contrastive loss. The models are jointly trained with 20K iterations.
+					video-only training, we used the batch size $$\mathcal{B}=12$$ for joint training with the NCE contrastive loss. The models are jointly trained with 20K iterations.
 				</td>
 			</tr>
 		</center>
 	<hr>
-	</table>
-	
-		<tr>
-			<td width=400px>
-				<left>
-					<center><h1>Acknowledgements</h1></center>
-					This material is based upon work supported by the National Science Foundation under Grant No. 2046853.</a>.
-				</left>
-			</td>
-		</tr>
-	</table>
 
 <br>
 </body>
