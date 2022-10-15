@@ -251,8 +251,8 @@
 					log-mel spectrogram patches with 96 x 64 bins for each 0.96-second audio region. Before training the detector, offline we extract the audio conv feature maps for each region 
 					using CNN layers of the <a href="https://arxiv.org/abs/1609.09430">VGGish</a> network pre-trained on the large YouTube dataset. These are fed to two FC layers during training. 
 					We use the indirect path, attention path and the combination of paths only during inference. They are not part of the training, but the audio-visual similarity that they rely 
-					on is learned in training. The learnable temperature parameter &rho is 0.07, and the weighting 
-					parameters &Lambda<sub>1</sub>, &Lambda<sub>2</sub>, and &Lambda<sub>3</sub> are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, 
+					on is learned in training. The learnable temperature parameter &rho; is 0.07, and the weighting 
+					parameters &Lambda;<sub>1</sub>, &Lambda;<sub>2</sub>, and &Lambda;<sub>3</sub> are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, 
 					the results become the same so our approach is not sensitive to the choice of lambdas to change the result. We use the <a href="https://arxiv.org/abs/1412.6980">Adam</a> optimizer by experimenting 
 					different learning rates and weight decays. The learning rate of 1e-5 and the weight decay of 5e-4 perform best for both dataset. While a batch size of 1 is used during audio-only and 
 					video-only training, we used the batch size B is 12 for joint training with the NCE contrastive loss. The models are jointly trained with 20K iterations.
