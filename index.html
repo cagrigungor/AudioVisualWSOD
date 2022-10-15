@@ -234,14 +234,14 @@
 					Before training the visual detector, we first extract at most 1000 visual proposals using <a href="https://ojs.aaai.org/index.php/AAAI/article/view/11219/11078">Edge Boxes</a> from <a href="https://books.google.com/books/about/Dr_Dobb_s_Journal.html?id=gWlVAAAAMAAJ">OpenCV</a>. 
 					We choose Edge Boxes over other CNN-based alternatives because it is a generic, dataset-independent proposal generation technique, as opposed to other supervised 
 					CNN-based alternatives that are trained end-to-end using a specific dataset. We use <a href="https://proceedings.neurips.cc/paper/2019/file/bdbca288fee7f92f2bfa9f7012727740-Paper.pdf">Pytorch</a> as our training framework. A convolutional 
-					feature map is obtained using CNN layers of the <a href="https://arxiv.org/abs/1409.1556">VGG16 network</a> pretrained with ImageNet before <a href="https://arxiv.org/abs/1703.06870">ROIAlign</a>, then the first 
+					feature map is obtained using CNN layers of the <a href="https://arxiv.org/abs/1409.1556">VGG16</a> network pretrained with ImageNet before <a href="https://arxiv.org/abs/1703.06870">ROIAlign</a>, then the first 
 					two fully-connected (FC) layers are used as box classifier to extract visual features. We preserve the original aspect ratio of the images and resize them to five 
-					different scales {480, 576, 688, 864, 1200} as described in \cite{bilen2016weakly}. As a type of data augmentation, we apply random horizontal flips to the images 
+					different scales {480, 576, 688, 864, 1200} as described in <a href="https://arxiv.org/abs/1511.02853">here</a>. As a type of data augmentation, we apply random horizontal flips to the images 
 					and choose a scale at random during training. At test time, we calculate the average outputs of 10 images (the 5 scales and their flips). The audio is separated into 
 					960 ms non-overlapping frames. A short-time Fourier transform is used to break down the 960 ms frames, with 25 ms windows every 10 ms. To prevent numerical difficulties, 
 					the resulting spectrogram is integrated into 64 mel-spaced frequency bins, and the magnitude of each bin is log-transformed after a slight offset is added. This produces 
 					log-mel spectrogram patches with 96 x 64 bins for each 0.96-second audio region. Before training the detector, offline we extract the audio conv feature maps for each region 
-					using CNN layers of the VGGish network \cite{hershey2017cnn} pre-trained on the large YouTube dataset \cite{hershey2017cnn}. These are fed to two FC layers during training. 
+					using CNN layers of the <a href="https://arxiv.org/abs/1609.09430">VGGish</a> network pre-trained on the large YouTube dataset. These are fed to two FC layers during training. 
 					We use the indirect path, attention path and the combination of paths only during inference. They are not part of the training, but the audio-visual similarity that they rely 
 					on is learned in training. Further implementation details can be found in the supplementary file. The learnable temperature parameter $\rho$ is 0.07, and the weighting 
 					parameters $\lambda_{1}, \lambda_{2},$ and $\lambda_{3}$ are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, 
