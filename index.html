@@ -248,7 +248,7 @@
 					log-mel spectrogram patches with 96 x 64 bins for each 0.96-second audio region. Before training the detector, offline we extract the audio conv feature maps for each region 
 					using CNN layers of the <a href="https://arxiv.org/abs/1609.09430">VGGish</a> network pre-trained on the large YouTube dataset. These are fed to two FC layers during training. 
 					We use the indirect path, attention path and the combination of paths only during inference. They are not part of the training, but the audio-visual similarity that they rely 
-					on is learned in training. Further implementation details can be found in the supplementary file. The learnable temperature parameter $\rho$ is 0.07, and the weighting 
+					on is learned in training. The learnable temperature parameter $\rho$ is 0.07, and the weighting 
 					parameters $\lambda_{1}, \lambda_{2},$ and $\lambda_{3}$ are 0.6, 0.2 and 0.2, respectively. We observe different lambda values affect the speed of training. After all losses converge, 
 					the results become the same so our approach is not sensitive to the choice of lambdas to change the result. We use the Adam optimizer \cite{kingma2014adam} by experimenting 
 					different learning rates and weight decays. The learning rate of 1e-5 and the weight decay of 5e-4 perform best for both dataset. While a batch size of 1 is used during audio-only and 
@@ -257,43 +257,7 @@
 			</tr>
 		</center>
 	</table>
-	<table align= center width=800px>
-		<br>
-		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
-			</center>
-		</span>
-	</table>
-	<br>
-	<hr>
-	<table align=center width=450px>
-		<center><h1>Paper and Supplementary Material</h1></center>
-		<tr>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">F. Author, S. Author, T. Author.<br>
-				<b>Creative and Descriptive Paper Title.</b><br>
-				In Conference, 20XX.<br>
-				(hosted on <a href="">ArXiv</a>)<br>
-				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
-				<span style="font-size:4pt"><a href=""><br></a>
-				</span>
-			</td>
-		</tr>
-	</table>
-	<br>
-
-	<table align=center width=600px>
-		<tr>
-			<td><span style="font-size:14pt"><center>
-				<a href="./resources/bibtex.txt">[Bibtex]</a>
-			</center></td>
-		</tr>
-	</table>
-
-	<hr>
-	<br>
-
-	<table align=center width=900px>
+	
 		<tr>
 			<td width=400px>
 				<left>
